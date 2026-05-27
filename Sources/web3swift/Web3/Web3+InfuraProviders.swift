@@ -279,6 +279,10 @@ public final class InfuraWebsocketProvider: WebsocketProvider {
             debugMode ? print("cancelled") : nil
             websocketConnected = false
             delegate.gotError(error: Web3Error.nodeError(desc: "socket cancelled"))
+        case .peerClosed:
+            debugMode ? print("peerClosed") : nil
+            websocketConnected = false
+            delegate.gotError(error: Web3Error.nodeError(desc: "peer closed connection"))
         case .error(let error):
             debugMode ? print("error: \(String(describing: error))") : nil
             websocketConnected = false

@@ -308,6 +308,9 @@ public class WebsocketProvider: Web3Provider, IWebsocketProvider, WebSocketDeleg
         case .cancelled:
             websocketConnected = false
             delegate.gotError(error: Web3Error.nodeError(desc: "socket cancelled"))
+        case .peerClosed:
+            websocketConnected = false
+            delegate.gotError(error: Web3Error.nodeError(desc: "peer closed connection"))
         case .error(let error):
             websocketConnected = false
             delegate.gotError(error: error!)
