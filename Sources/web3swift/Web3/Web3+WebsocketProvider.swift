@@ -283,7 +283,7 @@ public class WebsocketProvider: Web3Provider, IWebsocketProvider, WebSocketDeleg
         }
     }
     
-    public func didReceive(event: WebSocketEvent, client: WebSocket) {
+    public func didReceive(event: WebSocketEvent, client: WebSocketClient) {
         switch event {
         case .connected(let headers):
             websocketConnected = true
