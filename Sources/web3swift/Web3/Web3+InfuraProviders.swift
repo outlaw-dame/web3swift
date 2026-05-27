@@ -246,7 +246,7 @@ public final class InfuraWebsocketProvider: WebsocketProvider {
     }
     
     /// override WebsocketDelegate
-    override public func didReceive(event: WebSocketEvent, client: WebSocket) {
+    override public func didReceive(event: WebSocketEvent, client: WebSocketClient) {
         switch event {
         case .connected(let headers):
             debugMode ? print("websocket is connected, headers:\n \(headers)") : nil
